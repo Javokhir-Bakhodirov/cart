@@ -34,12 +34,14 @@ const cartSlice = createSlice({
 						message: "Added to Cart",
 						description: `${state.products[index].title} has been added to your cart.`,
 						placement: "bottomRight",
+						duration: 1,
 					});
 				} else {
 					notification.error({
 						message: "Added to Cart",
 						description: `${state.products[index].title} is out of stock.`,
 						placement: "bottomRight",
+						duration: 1,
 					});
 				}
 			}
@@ -58,8 +60,13 @@ const cartSlice = createSlice({
 			}
 			saveCartToLocalStorage(state);
 		},
+
+		clearCart: (state) => {
+			state.products = [];
+			saveCartToLocalStorage(state);
+		},
 	},
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
