@@ -26,6 +26,7 @@ const DropDownCart = () => {
 
 	return (
 		<Dropdown
+			className=""
 			menu={{
 				items: localProducts.map((product) => ({
 					key: product.id,

@@ -4,7 +4,7 @@ import Container from "../container/Container";
 
 const Loading = () => {
 	return (
-		<div className="h-[100vh] dark:bg-gray-800">
+		<div className="h-[100vh] ">
 			<Container>
 				<div className="loading-wrapper animate-spin  flex justify-center items-center my-[200px]  ">
 					{" "}

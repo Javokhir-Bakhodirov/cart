@@ -14,7 +14,7 @@ const Products = () => {
 
 	if (error) return <p>Error: {error.message}</p>;
 	return (
-		<section className="sale-section pt-[50px] dark:bg-gray-800 dark:text-gray-100 pb-[150px] ">
+		<section className="sale-section pt-[50px] dark:text-gray-100 pb-[150px] ">
 			<Container>
 				<div className="sale ">
 					<h1 className="sale__title mb-[24px] dark:text-white">

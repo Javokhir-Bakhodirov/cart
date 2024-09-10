@@ -22,7 +22,7 @@ const Cart = () => {
 		return (parseFloat(subtotal) + parseFloat(tax)).toFixed(2);
 	};
 	return (
-		<section className="cart-section pt-[50px] dark:bg-gray-800 dark:text-gray-100 pb-[150px] h-[100vh] ">
+		<section className="cart-section pt-[50px]  dark:text-gray-100 pb-[150px] h-[100vh] ">
 			<Container>
 				<h1>Cart</h1>
 				<div className="cart-summary bg-white border border-gray-300 p-6 rounded-md shadow-md mt-10">

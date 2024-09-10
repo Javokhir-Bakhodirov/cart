@@ -9,7 +9,7 @@ import store from "./redux/store";
 createRoot(document.getElementById("root")).render(
 	<BrowserRouter>
 		<Provider store={store}>
-			<App />
+			<App className="" />
 		</Provider>
 	</BrowserRouter>
 );
