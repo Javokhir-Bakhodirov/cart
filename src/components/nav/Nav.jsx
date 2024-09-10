@@ -67,7 +67,7 @@ const Nav = () => {
 
 	return (
 		<header
-			className={`site-header sticky top-0 bg-white dark:bg-gray-800 dark:text-white   z-50 pb-[5px] shadow-sm`}
+			className={`site-header sticky top-0 bg-white dark:bg-gray-800 dark:text-white dark:shadow-gray-300   z-50 pb-[5px] shadow-sm`}
 		>
 			<Container>
 				<div className="header__top top flex justify-between items-center border-b-2 pb-[10px]">
