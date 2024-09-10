@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { notification } from "antd";
 
 const loadCartFromLocalStorage = () => {
 	const savedCart = localStorage.getItem("cart");
@@ -21,8 +22,26 @@ const cartSlice = createSlice({
 			);
 			if (index === -1) {
 				state.products.push({ ...action.payload, quantity: 1 });
+				notification.success({
+					message: "Added to Cart",
+					description: `${action.payload.title} has been added to your cart.`,
+					placement: "bottomRight",
+				});
 			} else {
-				state.products[index].quantity = state.products[index].quantity + 1;
+				if (state.products[index].quantity < state.products[index].stock) {
+					state.products[index].quantity = state.products[index].quantity + 1;
+					notification.success({
+						message: "Added to Cart",
+						description: `${state.products[index].title} has been added to your cart.`,
+						placement: "bottomRight",
+					});
+				} else {
+					notification.error({
+						message: "Added to Cart",
+						description: `${state.products[index].title} is out of stock.`,
+						placement: "bottomRight",
+					});
+				}
 			}
 			saveCartToLocalStorage(state);
 		},

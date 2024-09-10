@@ -37,11 +37,6 @@ const Card = ({ product, cardType }) => {
 	};
 
 	const handleAddToCart = (product) => {
-		notification.success({
-			message: "Added to Cart",
-			description: `${product.title} has been added to your cart.`,
-			placement: "bottomRight",
-		});
 		dispatch(addToCart({ ...product, quantity: 1 }));
 	};
 	const handleRemoveFromCart = (product) => {
