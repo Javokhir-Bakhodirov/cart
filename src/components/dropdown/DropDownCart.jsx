@@ -14,11 +14,13 @@ const DropDownCart = () => {
 		setLocalProducts(products);
 	}, [products]);
 
-	const handleAddToCart = (product) => {
+	const handleAddToCart = (product, e) => {
+		e.stopPropagation();
 		dispatch(addToCart({ ...product, quantity: 1 }));
 	};
 
-	const handleRemoveFromCart = (product) => {
+	const handleRemoveFromCart = (product, e) => {
+		e.stopPropagation();
 		dispatch(removeFromCart(product));
 	};
 
@@ -35,23 +37,23 @@ const DropDownCart = () => {
 								alt={product.title}
 							/>
 							<div className="flex-1">
-								<p className="text-sm font-medium text-gray-900">
+								<p className="text-sm font-medium text-gray-900 line-clamp-1">
 									{product.title}
 								</p>
 								<p className="text-sm text-gray-600">
-									{product.price * product.quantity}
+									${(product.price * product.quantity).toFixed(2)}
 								</p>
 								<div className="flex items-center space-x-2 mt-2">
 									<button
 										className="px-3 py-1 bg-blue-600 text-white rounded-md text-xs"
-										onClick={() => handleRemoveFromCart(product)}
+										onClick={(e) => handleRemoveFromCart(product, e)}
 									>
 										-
 									</button>
 									<p className="text-xs">{product.quantity}</p>
 									<button
 										className="px-3 py-1 bg-blue-600 text-white rounded-md text-xs"
-										onClick={() => handleAddToCart(product)}
+										onClick={(e) => handleAddToCart(product, e)}
 									>
 										+
 									</button>
@@ -68,7 +70,7 @@ const DropDownCart = () => {
 						<div className="relative">
 							<AiOutlineShoppingCart className="text-2xl dark:text-white text-gray-800" />
 							{products.length > 0 && (
-								<span className="absolute top-[-10px] right-[-10px] bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+								<span className="absolute top-[-13px] right-[-13px] bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
 									{products.length}
 								</span>
 							)}
