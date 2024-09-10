@@ -1,4 +1,3 @@
-import { AiOutlineShoppingCart } from "react-icons/ai";
 import React from "react";
 import { Link } from "react-router-dom";
 import Container from "../container/Container";
@@ -10,6 +9,7 @@ import { Dropdown, Space, Switch, Input } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { changeTheme } from "../../redux/themeSlice";
 import { useEffect } from "react";
+import DropDownCart from "../dropdown/DropDownCart";
 
 const Nav = () => {
 	const length = useSelector((state) => state.cart.products.length);
@@ -119,20 +119,15 @@ const Nav = () => {
 									My eBay
 								</Link>
 							</li>
+							<li>
+								<DropDownCart />
+							</li>
 
 							<li className="top__item">
-								<Link to="/cart">
-									<div className="relative">
-										<AiOutlineShoppingCart className="text-2xl" />
-										{length > 0 && (
-											<span className="absolute top-[-15px] right-[-15px] bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-												{length}
-											</span>
-										)}
-									</div>
-								</Link>
+								<Link to="/cart"></Link>
 							</li>
 						</ul>
+
 						<Space direction="vertical" className="ml-3">
 							<Switch
 								checkedChildren="light"
